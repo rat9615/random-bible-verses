@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Sentence = (props) => {
-  return <div>{props.sentence}</div>;
+  return <div className="text-center">{props.sentence}</div>;
 };
 
 export { Sentence };
