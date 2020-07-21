@@ -1,16 +1,18 @@
-import { BookName } from './BookName';
-import chapterAndVerse from 'chapter-and-verse';
+import { bcv_parser } from 'bible-passage-reference-parser/js/en_bcv_parser';
 
-const RandomPassage = () => {
+export default () => {
+  const bcv = new bcv_parser();
+  const info = bcv.translation_info(['niv']);
   const bookNumber = Math.floor(Math.random() * 66);
-  const BibleBook = BookName(bookNumber);
-  const Book = chapterAndVerse(BibleBook);
-  let RandomChapter = Math.floor(Math.random() * Book.book.chapters);
-  let RandomVerse = Math.floor(
-    Math.random() * Book.book.versesPerChapter[RandomChapter]
+  const bookName = info.books[bookNumber];
+  const RandomChapter = Math.floor(
+    Math.random() * info.chapters[bookName].length
   );
-  let passage = Book + ' ' + (RandomChapter + 1) + ':' + (RandomVerse + 1);
+  const RandomVerse = Math.floor(
+    Math.random() * info.chapters[bookName][RandomChapter]
+  );
+  const passage = `${bookName === 'Phil' ? 'Philippians' : bookName}${
+    RandomChapter + 1
+  }:${RandomVerse + 1}`;
   return passage;
 };
-
-export { RandomPassage };
