@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sentence } from '../components/Sentence';
 import { Verse } from '../components/Verse';
+import { Button } from '../components/Button';
 import RandomPassage from './HomeContainer/RandomPassage';
 import { Loading } from '../components/Loading';
 import { ReactComponent as Church } from '../assets/img/church.svg';
@@ -32,6 +33,7 @@ const Home = () => {
           <Church className="h-12 w-12 sm:h-32 sm:w-32 origin-bottom" />
           <Sentence sentence={sentence} />
           <Verse verse={verse} />
+          <Button />
         </div>
       )}
     </div>

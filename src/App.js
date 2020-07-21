@@ -15,6 +15,7 @@ const App = () => {
       })
     );
   }, []);
+
   return (
     <Suspense fallback={<Loading />}>
       <div
