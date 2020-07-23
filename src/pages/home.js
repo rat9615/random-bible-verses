@@ -7,10 +7,20 @@ import { ReactComponent as Church } from '../assets/img/church.svg';
 import { useNextVerse } from '../hooks/useNextVerse/useNextVerse';
 
 const Home = () => {
-  const { sentence, verse, loading } = useNextVerse();
+  const {
+    sentence,
+    verse,
+    loading,
+    color,
+    setNext,
+    setLoading,
+  } = useNextVerse();
 
   return (
-    <div>
+    <div
+      className="flex h-screen flex-col items-center justify-center opacity-75"
+      style={{ backgroundColor: color }}
+    >
       {loading === true ? (
         <Loading />
       ) : (
@@ -20,7 +30,8 @@ const Home = () => {
           <Verse verse={verse} />
           <Button
             onClick={() => {
-              window.location.reload();
+              setLoading((prevLoading) => !prevLoading);
+              setNext((prevNext) => !prevNext);
             }}
           />
         </div>
