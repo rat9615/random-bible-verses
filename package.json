@@ -6,18 +6,15 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "autoprefixer": "^9.8.5",
     "bible-passage-reference-parser": "^2.0.1",
-    "postcss-cli": "^7.1.1",
     "randomcolor": "^0.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "tailwindcss": "^1.5.2"
+    "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "yarn run watch:css && react-scripts start",
-    "build": "yarn run build:css && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "postcss src/assets/css/tailwind.css -o src/assets/css/bibleversesdaily.css",
@@ -38,5 +35,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "autoprefixer": "^9.8.5",
+    "postcss-cli": "^7.1.1",
+    "tailwindcss": "^1.5.2"
+  }
 }
